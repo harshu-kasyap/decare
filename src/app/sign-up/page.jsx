@@ -29,7 +29,7 @@ const page = () => {
       <div className="flex justify-center items-center h-screen">
         <Card className="mx-auto max-w-sm">
           <CardHeader>
-            <CardTitle className="text-2xl">Decare</CardTitle>
+            <CardTitle className="text-2xl">De Care</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4">
