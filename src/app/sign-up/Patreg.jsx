@@ -65,49 +65,10 @@ export const Patreg = () => {
                                 type="email"
                             />
                         </div>
+                        
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="username" className="text-right w-full">
-                                College
-                            </Label>
-                            <Input
-                                id="username"
-                                defaultValue="AIIMS"
-                                className="col-span-3"
-                            />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="username" className="text-right w-full">
-                                College ID
-                            </Label>
-                            <Input
-                                id="username"
-                                className="col-span-3"
-                                type="number"
-                            />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="username" className="text-right w-full">
-                                Degree
-                            </Label>
-                            <Input
-                                id="username"
-                                defaultValue="MBBS"
-                                className="col-span-3"
-                            />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="username" className="text-right w-full">
-                                Specialization
-                            </Label>
-                            <Input
-                                id="username"
-                                defaultValue="Orthopedic"
-                                className="col-span-3"
-                            />
-                        </div>
-                        <div className="grid grid-cols-4 items-center gap-4">
-                            <Label htmlFor="username" className="text-right w-full">
-                                Bio
+                                Disease
                             </Label>
                             <Input
                                 id="bio"
