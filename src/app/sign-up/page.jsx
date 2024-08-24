@@ -23,7 +23,7 @@ const page = () => {
   return (
     <section className="flex flex-col ">
       <div className="flex mt-8 mr-4 top-4 right-0 justify-end">
-       
+
         <button className="flex gap-x-2 px-3 py-2 bg-black text-white rounded-3xl mr-8">Connect Wallet <span><Wallet size={20} className="" /></span></button>
       </div>
       <div className="flex justify-center items-center h-screen">
@@ -36,10 +36,10 @@ const page = () => {
               {/* <Button>Doctor Registration</Button> */}
               {/* Button>Patient Registration</Button> */}
               <Docreg />
-              <Patreg/>
+              <Patreg />
             </div>
             <div className="mt-4 text-center text-sm">
-              connect your wallet to get started
+              Connect your wallet to get started!
               <Button variant="ghost" className="underline">
                 connect
               </Button>
