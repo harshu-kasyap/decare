@@ -19,7 +19,7 @@ export const Patreg = () => {
         <>
         <Dialog>
                 <DialogTrigger asChild>
-                    <Button>Patient Registration</Button>
+                    <Button className="bg-red-500 hover:bg-red-400 text-white h-5 py-8">Patient Registration</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>

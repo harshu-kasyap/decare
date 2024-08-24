@@ -24,7 +24,7 @@ const page = () => {
     <section className="flex flex-col ">
       <div className="flex mt-8 mr-4 top-4 right-0 justify-end">
 
-        <button className="flex gap-x-2 px-3 py-2 bg-black text-white rounded-3xl mr-8">Connect Wallet <span><Wallet size={20} className="" /></span></button>
+        <button className="flex gap-x-2 px-3 py-2 h-12 items-center bg-black text-white rounded-3xl mr-8">Connect Wallet <span><Wallet size={20} className="" /></span></button>
       </div>
       <div className="flex justify-center items-center h-screen">
         <Card className="mx-auto max-w-sm">

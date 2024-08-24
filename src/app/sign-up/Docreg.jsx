@@ -19,13 +19,13 @@ export const Docreg = () => {
         <>
             <Dialog>
                 <DialogTrigger asChild>
-                    <Button>Doctor Registration</Button>
+                    <Button className="bg-green-500 hover:bg-[#3eef7f] text-white h-5 py-8">Doctor Registration</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                         <DialogTitle>Edit profile</DialogTitle>
                         <DialogDescription>
-                            Please enter valid details we will verify.
+                            Please enter valid details w py-8e will verify.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4 text-justify">
