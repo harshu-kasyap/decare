@@ -114,5 +114,5 @@ contract Healthcare {
     address payable public admin;
     uint public registrationDoctorFee = 0.0025 ether;
     uint public registrationPatientFee = 0.00025 ether;
-    uint public appointmentFee = 0.0025 ether;
+    uint public appointmentFee = 0.0025 ether;    
     }
