@@ -1,4 +1,8 @@
 
+import React from "react";
+//INTERNAL IMPORT
+
+import { FaRegEdit } from "../../ReactICON/index";
 
 const Header = ({ patientDetails, doctor, patientAppoinment }) => {
   return (

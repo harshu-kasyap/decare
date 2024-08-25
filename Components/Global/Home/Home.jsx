@@ -41,6 +41,7 @@ const Home = ({
           iconOne={<HeroCard1 />}
           iconTwo={<HeroCard2 />}
           classStyle={"bg-primary"}
+          classStyle={"bg-danger"}
         />
         <Card
           title={"Doctor"}

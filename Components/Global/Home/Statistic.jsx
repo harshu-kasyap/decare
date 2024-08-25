@@ -41,6 +41,20 @@ const Statistic = () => {
             </ul>
           </div>
         </div>
+        {/* <div className="card-body ps-2 pe-3 pb-2">
+          <div className="tab-content">
+            <div className="tab-pane fade show active" id="monthly">
+              <span id="chartNewData"></span>
+              <div id="chartBar" />
+            </div>
+            <div className="tab-pane fade" id="weekly">
+              <div id="chartBar1" />
+            </div>
+            <div className="tab-pane fade" id="today">
+              <div id="chartBar2" />
+            </div>
+          </div>
+        </div> */}
       </div>
     </div>
   );

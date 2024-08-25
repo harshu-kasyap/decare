@@ -6,6 +6,7 @@ import GiftData from "../Data/Gift.json";
 import { Header1, Header2, Header3 } from "../../SVG/index";
 import { IoIosSunny, IoMoon } from "../../ReactICON/index";
 import Notification from "./Notification/Notification";
+import Gift from "./Gift/Gift";
 import Avator from "./Avator/Avator";
 
 import { useStateContext } from "../../../Context/index";
@@ -82,6 +83,21 @@ const Header = ({
                 />
               </li>
 
+              <li className="nav-item dropdown notification_dropdown">
+                <a
+                  className="nav-link ai-icon"
+                  href="javascript:;"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <Header3 />
+                  <span className="badge light text-white bg-dark">
+                    {GiftData?.length}
+                  </span>
+                </a>
+
+                <Gift />
+              </li>
               <li className="nav-item dropdown notification_dropdown">
                 <a
                   className="nav-link bell dz-theme-mode"

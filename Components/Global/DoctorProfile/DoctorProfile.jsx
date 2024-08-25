@@ -117,6 +117,20 @@ const DoctorProfile = ({ setPatientDetails, setOpenComponent, user }) => {
                 className="widget-media dz-scroll px-4"
               >
                 {doctorAppoinments?.length && (
+            {doctorAppoinments?.length ? (
+              <div className="card-header border-0 pb-0">
+                <h4 className="fs-20 font-w600 mb-0">Appointments List</h4>
+              </div>
+            ) : (
+              ""
+            )}
+
+            <div className="card-body px-0 pt-4">
+              <div
+                id="DZ_W_Todo2"
+                className="widget-media dz-scroll px-4 height370"
+              >
+                {doctorAppoinments?.length ? (
                   <ul className="timeline">
                     {doctorAppoinments?.map((item, index) => (
                       <AppoinmentList
@@ -132,6 +146,18 @@ const DoctorProfile = ({ setPatientDetails, setOpenComponent, user }) => {
                     ))}
                   </ul>
                 )  }
+                ) : (
+                  <img
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                    src="appointment.jpg"
+                    alt="Appointment"
+                  />
+                )}
               </div>
               <div
                 style={{
