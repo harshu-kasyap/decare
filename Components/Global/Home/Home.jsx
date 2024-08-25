@@ -40,6 +40,7 @@ const Home = ({
           number={"4"}
           iconOne={<HeroCard1 />}
           iconTwo={<HeroCard2 />}
+          classStyle={"bg-primary"}
           classStyle={"bg-danger"}
         />
         <Card
@@ -64,7 +65,7 @@ const Home = ({
           number={".5"}
           iconOne={<HeroCard7 />}
           iconTwo={<Header1 />}
-          classStyle={"bg-secondary"}
+          classStyle={"bg-danger"}
         />
 
         <Revenue accountBalance={accountBalance} currency={currency} />

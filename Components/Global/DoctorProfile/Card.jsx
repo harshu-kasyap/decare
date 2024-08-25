@@ -8,6 +8,7 @@ const Card = ({ icon, title, name }) => {
           {icon}
         </span>
         <div className="media-body">
+          <span className="d-block text-black font-w600 mb-1 w-full">{title}</span>
           <span className="d-block text-black font-w600 mb-1">{title}</span>
           <p>{name}</p>
         </div>

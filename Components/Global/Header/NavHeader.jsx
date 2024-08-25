@@ -7,6 +7,7 @@ const NavHeader = () => {
   return (
     <div className="nav-header">
       <a href="/" className="brand-logo">
+       DeCare
         <Nav1 />
         <Nav2 />
       </a>
