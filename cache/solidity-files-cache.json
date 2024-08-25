@@ -1,42 +1,41 @@
 {
-    "_format": "hh-sol-cache-2",
-    "files": {
-      "/Users/daulathussain/Downloads/medical/contracts/Medical.sol": {
-        "lastModificationDate": 1723959709615,
-        "contentHash": "1177181ba4ec271643d9e397ae7c7fc8",
-        "sourceName": "contracts/Medical.sol",
-        "solcConfig": {
-          "version": "0.8.17",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "runs": 200
-            },
-            "viaIR": true,
-            "outputSelection": {
-              "*": {
-                "*": [
-                  "abi",
-                  "evm.bytecode",
-                  "evm.deployedBytecode",
-                  "evm.methodIdentifiers",
-                  "metadata"
-                ],
-                "": [
-                  "ast"
-                ]
-              }
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/daulathussain/Downloads/medical/contracts/Medical.sol": {
+      "lastModificationDate": 1723959709615,
+      "contentHash": "1177181ba4ec271643d9e397ae7c7fc8",
+      "sourceName": "contracts/Medical.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "viaIR": true,
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
             }
           }
-        },
-        "imports": [],
-        "versionPragmas": [
-          "^0.8.0"
-        ],
-        "artifacts": [
-          "Healthcare"
-        ]
-      }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Healthcare"
+      ]
     }
   }
-  
+}

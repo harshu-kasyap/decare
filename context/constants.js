@@ -5,6 +5,7 @@ import axios from "axios";
 
 import Healthcare from "./Healthcare.json";
 
+//OPEN AI
 const openai = new OpenAI({
   apiKey: process.env.NEXT_PUBLIC_OPEN_AI_KEY,
   dangerouslyAllowBrowser: true,
@@ -13,13 +14,38 @@ const openai = new OpenAI({
 const HEALTH_CARE_ABI = Healthcare.abi;
 const HEALTH_CARE_ADDRESS = process.env.NEXT_PUBLIC_HEALTH_CARE;
 
+//ADMIN
 const ADMIN_ADDRESS = process.env.NEXT_PUBLIC_ADMIN_ADDRESS;
 const NETWORK = process.env.NEXT_PUBLIC_NETWORK;
 
+//PINATE API - SECRECT KEYS
 const PINATA_AIP_KEY = process.env.NEXT_PUBLIC_PINATA_AIP_KEY;
 const PINATA_SECRECT_KEY = process.env.NEXT_PUBLIC_PINATA_SECRECT_KEY;
 
+//NETWORK
 const networks = {
+  holesky: {
+    chainId: `0x${Number(17000).toString(16)}`,
+    chainName: "Holesky",
+    nativeCurrency: {
+      name: "ETH",
+      symbol: "ETH",
+      decimals: 18,
+    },
+    rpcUrls: ["https://rpc.ankr.com/eth_holesky"],
+    blockExplorerUrls: ["https://holesky.etherscan.io/"],
+  },
+  sepolia: {
+    chainId: `0x${Number(11155111).toString(16)}`,
+    chainName: "Sepolia",
+    nativeCurrency: {
+      name: "SepoliaETH",
+      symbol: "SepoliaETH",
+      decimals: 18,
+    },
+    rpcUrls: ["https://sepolia.infura.io/v3/"],
+    blockExplorerUrls: ["https://sepolia.etherscan.io"],
+  },
   polygon_amoy: {
     chainId: `0x${Number(80002).toString(16)}`,
     chainName: "Polygon Amoy",
@@ -30,6 +56,50 @@ const networks = {
     },
     rpcUrls: ["https://rpc.ankr.com/polygon_amoy"],
     blockExplorerUrls: ["https://www.oklink.com/amoy"],
+  },
+  polygon: {
+    chainId: `0x${Number(137).toString(16)}`,
+    chainName: "Polygon Mainnet",
+    nativeCurrency: {
+      name: "MATIC",
+      symbol: "MATIC",
+      decimals: 18,
+    },
+    rpcUrls: ["https://rpc.ankr.com/polygon"],
+    blockExplorerUrls: ["https://polygonscan.com/"],
+  },
+  bsc: {
+    chainId: `0x${Number(56).toString(16)}`,
+    chainName: "Binance Smart Chain Mainnet",
+    nativeCurrency: {
+      name: "Binance Chain Native Token",
+      symbol: "BNB",
+      decimals: 18,
+    },
+    rpcUrls: ["https://rpc.ankr.com/bsc"],
+    blockExplorerUrls: ["https://bscscan.com"],
+  },
+  base_mainnet: {
+    chainId: `0x${Number(8453).toString(16)}`,
+    chainName: "Base Mainnet",
+    nativeCurrency: {
+      name: "ETH",
+      symbol: "ETH",
+      decimals: 18,
+    },
+    rpcUrls: ["https://mainnet.base.org/"],
+    blockExplorerUrls: ["https://bscscan.com"],
+  },
+  base_sepolia: {
+    chainId: `0x${Number(84532).toString(16)}`,
+    chainName: "Base Sepolia",
+    nativeCurrency: {
+      name: "ETH",
+      symbol: "ETH",
+      decimals: 18,
+    },
+    rpcUrls: ["https://sepolia.base.org"],
+    blockExplorerUrls: ["https://bscscan.com"],
   },
   localhost: {
     chainId: `0x${Number(31337).toString(16)}`,
@@ -89,6 +159,9 @@ export function CONVERT_TIMESTAMP_TO_READABLE(timeStamp) {
   return readableTime;
 }
 
+//CONTRACT
+
+//---FETCHING SMART CONTRACT
 const FETCH_CONTRACT = (address, abi, signer) =>
   new ethers.Contract(address, abi, signer);
 
@@ -102,6 +175,7 @@ export const HEALTH_CARE_CONTARCT = async () => {
   return contract;
 };
 
+//CONTRACT FUNCTIONS
 export const CHECKI_IF_CONNECTED = async () => {
   if (!window.ethereum) return "Install MetaMask";
   const network = await HANDLE_NETWORK_SWITCH();
@@ -115,6 +189,9 @@ export const CHECKI_IF_CONNECTED = async () => {
   }
 };
 
+//----DOCTORS----
+
+//GET ALL APPROVE DOCTORS
 export const GET_ALL_APPROVE_DOCTORS = async () => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -189,6 +266,7 @@ export const GET_ALL_APPROVE_DOCTORS = async () => {
   return _doctorsArray;
 };
 
+//GET REGISTER DOCTORS
 export const GET_ALL_REGISTERED_DOCTORS = async () => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -264,6 +342,7 @@ export const GET_ALL_REGISTERED_DOCTORS = async () => {
   return _doctorsArray;
 };
 
+///GET DOCTOR APPOINMENTS HISTORY
 export const GET_DOCTOR_APPOINTMENTS_HISTORYS = async (_doctorID) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -307,6 +386,7 @@ export const GET_DOCTOR_APPOINTMENTS_HISTORYS = async (_doctorID) => {
   return _appointmentArray;
 };
 
+//GET BEST DOCTOR
 export const GET_MOST_POPULAR_DOCTOR = async () => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -326,6 +406,7 @@ export const GET_MOST_POPULAR_DOCTOR = async () => {
   return result;
 };
 
+//GET DOCTORS DETAILS
 export const GET_DOCTOR_DETAILS = async (_doctorId) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -387,6 +468,7 @@ export const GET_DOCTOR_DETAILS = async (_doctorId) => {
   return doctorDetails;
 };
 
+//GET DOCTOR ID DETAILS
 export const GET_DOCTOR_ID = async (_doctorAddress) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -395,6 +477,7 @@ export const GET_DOCTOR_ID = async (_doctorAddress) => {
   return doctor.toNumber();
 };
 
+//CHECK DOCTOR ALREADY REGSITER
 export const CHECK_DOCTOR_REGISTERATION = async (_doctorAddress) => {
   if (!_doctorAddress) return console.log("Data Missing");
 
@@ -406,6 +489,11 @@ export const CHECK_DOCTOR_REGISTERATION = async (_doctorAddress) => {
   return doctorDetail;
 };
 
+//----END OF DOCTORS------
+
+//----MEDICINE------------
+
+//GET REGISTER MEDICINE
 export const GET_ALL_REGISTERED_MEDICINES = async () => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -468,6 +556,7 @@ export const GET_ALL_REGISTERED_MEDICINES = async () => {
   return _medicinesArray;
 };
 
+//GET MEDICINE DETAILS
 export const GET_MEDICINE_DETAILS = async (_medicineId) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -516,7 +605,11 @@ export const GET_MEDICINE_DETAILS = async (_medicineId) => {
 
   return _medicine;
 };
+//-----END OF MEDICINE
 
+//----PATIENTS-----------
+
+//GET ALL APPOINMENT
 export const GET_ALL_APPOINTMENTS = async () => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -542,6 +635,7 @@ export const GET_ALL_APPOINTMENTS = async () => {
   return _appointmentArray;
 };
 
+//GET REGISTER PATIENTS
 export const GET_ALL_REGISTERED_PATIENTS = async () => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -591,6 +685,7 @@ export const GET_ALL_REGISTERED_PATIENTS = async () => {
   return _patientsArray;
 };
 
+//GET PATIENT APPOINMENT
 export const GET_PATIENT_APPOINTMENT = async (_appointmentId) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -608,6 +703,7 @@ export const GET_PATIENT_APPOINTMENT = async (_appointmentId) => {
   return _appointment;
 };
 
+///GET ALL PATIENT APPOINMENT HISTORY
 export const GET_PATIENT_APPOINTMENT_HISTORYS = async (_patientID) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -653,6 +749,7 @@ export const GET_PATIENT_APPOINTMENT_HISTORYS = async (_patientID) => {
   return _appointmentArray;
 };
 
+//GET PRESCRIPTION DETAILS
 export const GET_PATIENT_DETAILS = async (_patientId) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -698,6 +795,7 @@ export const GET_PATIENT_DETAILS = async (_patientId) => {
   return patientDetails;
 };
 
+//GET PATIENT ID DETAILS
 export const GET_PATIENT_ID = async () => {
   const address = await CHECKI_IF_CONNECTED();
   const contract = await HEALTH_CARE_CONTARCT();
@@ -709,6 +807,7 @@ export const GET_PATIENT_ID = async () => {
   }
 };
 
+//CHECK PATIENT ALREADY REGSITER
 export const CHECK_PATIENT_REGISTERATION = async (_patientAddress) => {
   if (!_patientAddress) return console.log("Data Missing");
 
@@ -720,6 +819,7 @@ export const CHECK_PATIENT_REGISTERATION = async (_patientAddress) => {
   return patientDetail;
 };
 
+//GET_ALL_PATIENT_ORDERS
 export const GET_ALL_PATIENT_ORDERS = async (_patientID) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -746,6 +846,7 @@ export const GET_ALL_PATIENT_ORDERS = async (_patientID) => {
   return _orderArray;
 };
 
+//GET_MIDEICIAL_HISTORY
 export const GET_PATIENT_MEDICIAL_HISTORY = async (_patientID) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -754,7 +855,9 @@ export const GET_PATIENT_MEDICIAL_HISTORY = async (_patientID) => {
   return history;
 };
 
+//-----END OF PATIENTS
 
+//GET PRESCRIPTION DETAILS
 export const GET_PRESCRIPTION_DETAILS = async (_prescriptionId) => {
   const contract = await HEALTH_CARE_CONTARCT();
 
@@ -812,7 +915,9 @@ export const GET_ALL_PRESCRIBED_MEDICINES_OF_PATIENT = async (
   }
 };
 
+//-------END OF PRESCRIPTION--------
 
+//----------CHAT-------------
 export const GET_USERNAME_TYPE = async (_userAddress) => {
   if (!_userAddress) return console.log("No Address");
 
@@ -923,6 +1028,11 @@ export const GET_FEE = async () => {
   return fee;
 };
 
+//----------END OF CHAT-------------
+
+//----IPFS UPLOAD--------
+
+//--IMAGE UPLOAD
 export const UPLOAD_IPFS_IMAGE = async (file) => {
   if (file) {
     const formData = new FormData();
@@ -944,6 +1054,7 @@ export const UPLOAD_IPFS_IMAGE = async (file) => {
   }
 };
 
+//--METADAT UPLOAD
 export const UPLOAD_METADATA = async (data) => {
   const response = await axios({
     method: "POST",
@@ -961,7 +1072,9 @@ export const UPLOAD_METADATA = async (data) => {
   return url;
 };
 
+//----END OF IPFS UPLOAD--------
 
+//-----------OPEN AI-------------
 
 export const ASK_AI_CHAT = async (prompt) => {
   if (!prompt) {
@@ -996,3 +1109,4 @@ export const ASK_AI_CHAT = async (prompt) => {
   return completion.choices[0].message.content;
 };
 
+//-----------END OF OPEN AI-------------

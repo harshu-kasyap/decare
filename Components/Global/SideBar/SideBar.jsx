@@ -1,4 +1,6 @@
+import React from "react";
 
+//INTERNAL IMPORT
 import {
   CgMenuGridR,
   CgMenuHotdog,
@@ -106,6 +108,15 @@ const SideBar = ({
                   Profile
                 </a>
               </li>
+              <li>
+                <a
+                  onClick={() => {
+                    setOpenComponent("Notifications");
+                  }}
+                >
+                  Notifications
+                </a>
+              </li>
               {userType == "Patient" && (
                 <Link
                   name={"Order"}
@@ -141,7 +152,7 @@ const SideBar = ({
               <i>
                 <FaShoppingBag />
               </i>
-              <span className="nav-text">Medicines</span>
+              <span className="nav-text">Shop</span>
             </a>
           </li>
           <li>
@@ -156,7 +167,36 @@ const SideBar = ({
               <span className="nav-text">Chat</span>
             </a>
           </li>
+          <li>
+            <a
+              className="ai-icon"
+              aria-expanded="false"
+              onClick={() => setOpenComponent("Ask AI")}
+            >
+              <i>
+                <BsRobot />
+              </i>
+              <span className="nav-text">Ask AI</span>
+            </a>
+          </li>
         </ul>
+        <div className="plus-box">
+          <p className="fs-16 font-w500 mb-1">Check your job schedule</p>
+          <a className="text-white fs-26" href="javascript:;">
+            <i>
+              <FaArrowRightLong />
+            </i>
+          </a>
+        </div>
+        <div className="copyright">
+          <p className="fs-14 font-w200">
+            <strong className="font-w400">TBC Hospital Admin Dashboard</strong>©
+            2023 All Rights Reserved
+          </p>
+          <p className="fs-12">
+            Made with <span className="heart" /> by @theblockchaincoders
+          </p>
+        </div>
       </div>
     </div>
   );

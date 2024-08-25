@@ -107,16 +107,6 @@ const DoctorProfile = ({ setPatientDetails, setOpenComponent, user }) => {
       <div className="row">
         <div className="col-xl-3 col-lg-4 col-xxl-4">
           <div className="card">
-            
-              <div className="card-header border-0 pb-0">
-                <h4 className="fs-20 font-w600 mb-0">Appointments List</h4>
-              </div>
-            <div className="card-body px-0">
-              <div
-                id="DZ_W_Todo2"
-                className="widget-media dz-scroll px-4"
-              >
-                {doctorAppoinments?.length && (
             {doctorAppoinments?.length ? (
               <div className="card-header border-0 pb-0">
                 <h4 className="fs-20 font-w600 mb-0">Appointments List</h4>
@@ -145,7 +135,6 @@ const DoctorProfile = ({ setPatientDetails, setOpenComponent, user }) => {
                       />
                     ))}
                   </ul>
-                )  }
                 ) : (
                   <img
                     style={{
